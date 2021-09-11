@@ -43,10 +43,10 @@
     </div>
   </div>
 
-  {% for x in lista %}
-      <div class="py-4 bg-light" >
-        <div class="container">
-          <div class="row">
+  <div class="py-4 bg-light" >
+    <div class="container">
+      <div class="row">
+        {% for x in lista %}
             <div class="col-md-4 p-3">
               <div class="card box-shadow">
                 <img class="card-img-top" src="{{ x['url'] }}">
@@ -58,10 +58,11 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
-  {% endfor %}
+    </div>
+  </div>
+
   <footer class="text-muted py-5">
     <div class="container">
       <p class="float-right">
