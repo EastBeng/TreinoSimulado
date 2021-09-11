@@ -7,12 +7,14 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():  # put application's code here
     url = 'https://meme-api.herokuapp.com/gimme'
-    response = requests.get(url)
-    dados = response.json()
-    print(dados)
+    lista =[]
+    for x in range(3):
+        response = requests.get(url)
+        dados = response.json()
+        lista.append(dados)
     if dados['url']:
         urlMeme = dados['url']
-        return render_template('index.html', url=urlMeme, dados = dados)
+        return render_template('index.html', url=urlMeme, dados = dados,lista = lista)
     return render_template('index.html', url="",dados=dados)
 
 
